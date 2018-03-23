@@ -47,3 +47,4 @@ class Meizut():
 if __name__ =="__main__":
     meizi_url = "http://www.mzitu.com/all/"
     thing = Meizut(meizi_url)
+    '''我就验证下'''
