@@ -45,20 +45,20 @@ def read_e_pay():
         if r == 100:
             print (data_line)
 #将数据库数据写入Excel表
-def write(cishu,id,name,mer_id,shop_id):
-    table.write(cishu, 0, id)
-    table.write(cishu, 1, name)
-    table.write(cishu, 2, mer_id)
-    table.write(cishu, 3, shop_id)
+def write(table1,cishu,id,name,mer_id,shop_id):
+    table1.write(cishu, 0, id)
+    table1.write(cishu, 1, name)
+    table1.write(cishu, 2, mer_id)
+    table1.write(cishu, 3, shop_id)
 
 #数据库读取数据
 def mysql_read():
     file = xlwt.Workbook(encoding='utf-8')
-    table = file.add_sheet('e-pay-list.xlsx')
-    table.write(0, 0, "付款人id")
-    table.write(0, 1, '付款人姓名')
-    table.write(0, 2, '商户id')
-    table.write(0, 3, '门店id')
+    table1 = file.add_sheet('e-pay-list.xlsx')
+    table1.write(0, 0, "付款人id")
+    table1.write(0, 1, '付款人姓名')
+    table1.write(0, 2, '商户id')
+    table1.write(0, 3, '门店id')
     #链接数据库
     i = 1
     connect = pymysql.Connect(
@@ -80,7 +80,7 @@ def mysql_read():
         name1 = row[1]
         mer_id1 = row[2]
         shop_id1 = row[3]
-        write(i,id1, name1, mer_id1, shop_id1)
+        write(table1,i,id1, name1, mer_id1, shop_id1)
         i = i + 1
         print(i-1,id1, name1, mer_id1,shop_id1)
     file.save('e-pay-list.xlsx')
@@ -116,11 +116,7 @@ def dingdan_daoru():
             cishu =cishu+1
             print (cishu-1,id)
     file.save("diandan_daoru.xlsx")
-dingdan_daoru()
 
 
-    
-    
-    
-
-
+if __name__ == "__main__":
+    mysql_read()
