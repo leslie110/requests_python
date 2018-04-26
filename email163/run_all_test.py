@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import HTMLTestRunner
 import unittest,time
-import
+from email163.public import send_email
 
 def all_case():
     this_dir = r"F:\download\requests_python\126email"
@@ -9,6 +9,7 @@ def all_case():
                                                    pattern="test*.py",
                                                    top_level_dir=None)
     return discover
+
 
 if __name__ == '__main__':
     now = time.strftime("%Y-%m-%d %H_%M_%S")
@@ -20,3 +21,5 @@ if __name__ == '__main__':
                                            description="用例执行情况")
     runner.run(all_case())
     fp.close()
+    send = send_email
+    send.send_mail()
