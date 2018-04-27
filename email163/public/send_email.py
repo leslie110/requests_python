@@ -11,7 +11,7 @@ def send_mail():
     smtp_server = "smtp.163.com"
     username = "15309215554@163.com"
     passwd = "616387521"
-    body = u'我就是想看看乱码'
+    body = u'测试完成'
     msg = MIMEText(body,'plain','utf-8')
     msg['from'] = send_from
     msg['to'] = send_to
