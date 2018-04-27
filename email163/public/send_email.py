@@ -3,6 +3,7 @@ from email.mime.text import MIMEText
 import smtplib
 from email.header import Header
 
+
 def send_mail():
     send_from = '15309215554@163.com'
     send_to = '616387521@qq.com'
